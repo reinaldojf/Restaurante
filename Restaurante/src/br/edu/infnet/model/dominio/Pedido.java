@@ -1,6 +1,7 @@
 package br.edu.infnet.model.dominio;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Pedido {
@@ -9,6 +10,23 @@ public class Pedido {
 	private boolean web;
 	private Solicitante solicitante;
 	private List<Produto> produtos;
+	
+	public Pedido() {
+		data = LocalDateTime.now();
+		descricao = "Pedido web";
+		web = true;
+	}
+	@Override
+	public String toString() {
+		
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/mm/yyyy HH:mm");
+		
+		return String.format("%s;%s;%s,%d", 
+				descricao, 
+				data.format(formato), 
+				web ? "internet":"loja",
+				produtos.size());
+	}
 	
 	public Solicitante getSolicitante() {
 		return solicitante;
@@ -31,9 +49,9 @@ public class Pedido {
 	public LocalDateTime getData() {
 		return data;
 	}
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
+//	public void setData(LocalDateTime data) {
+//		this.data = data;
+//	}
 	public boolean isWeb() {
 		return web;
 	}

@@ -17,30 +17,37 @@ public class PedidoTeste {
 		Pedido pedido = new Pedido();
 		pedido.setDescricao("Compra 1");
 		LocalDateTime data = LocalDateTime.now();
-		pedido.setData(data);
-		pedido.setWeb(true);
+//		pedido.setData(data);
+		pedido.setWeb(false);
 		
-		Solicitante solicitante = new Solicitante();
-		solicitante.setNome("Reinaldo");
-		solicitante.setCpf("111111111-11");
-		solicitante.setEmail("teste@teste.com.br");
+//		Solicitante solicitante = new Solicitante();
+//		solicitante.setNome("Reinaldo");
+//		solicitante.setCpf("111111111-11");
+//		solicitante.setEmail("teste@teste.com.br");
+		Solicitante solicitante = new Solicitante("Reinaldo", "111111111-11", "teste@teste.com.br");
 		pedido.setSolicitante(solicitante);
 		
-		Comida com1 = new Comida();
-		Bebida beb1 = new Bebida();
-		Sobremesa sob1 = new Sobremesa();
+		Bebida b1 = new Bebida("xxx", 10, 1);
+		b1.setPeso(0);
+		b1.setVegano(false);
+		b1.setIngredientes(null);
 		
-		Comida com2 = new Comida();
-		Bebida beb2 = new Bebida();
-		Sobremesa sob2 = new Sobremesa();
+		Comida c1 = new Comida("xxx", 10, 1);
+		c1.setGelada(true);
+		c1.setTamanho(10);
+		c1.setMarca("xxx");
+
+		Sobremesa s1 = new Sobremesa("xxx", 10, 1);
+		s1.setQuantidade(10);
+		s1.setDoce(true);
+		s1.setInformacao("xxx");
+		
+		// Incluir comida e sobremesa
 		
 		List<Produto> colecaoProdutos = new ArrayList<Produto>();
-		colecaoProdutos.add(com1);
-		colecaoProdutos.add(beb1);
-		colecaoProdutos.add(sob1);
-		colecaoProdutos.add(com2);
-		colecaoProdutos.add(beb2);
-		colecaoProdutos.add(sob2);
+		colecaoProdutos.add(b1);
+		colecaoProdutos.add(c1);
+		colecaoProdutos.add(s1);
 
 		pedido.setProdutos(colecaoProdutos);
 

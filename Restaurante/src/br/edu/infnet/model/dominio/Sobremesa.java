@@ -4,6 +4,25 @@ public class Sobremesa extends Produto {
 	private float quantidade;
 	private boolean doce;
 	private String informacao;
+	
+	public Sobremesa(String nome, float valor, int codigo) {
+		super(nome, valor, codigo);
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(super.toString());
+		sb.append(";");
+		sb.append(quantidade);
+		sb.append(";");
+		sb.append(doce);
+		sb.append(";");
+		sb.append(informacao);
+		
+		return sb.toString();
+	}
 	public float getQuantidade() {
 		return quantidade;
 	}
@@ -21,6 +40,11 @@ public class Sobremesa extends Produto {
 	}
 	public void setInformacao(String informacao) {
 		this.informacao = informacao;
+	}
+	@Override
+	public float calcularValorVenda() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	
